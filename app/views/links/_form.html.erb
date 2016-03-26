@@ -1,0 +1,9 @@
+<%= form_for @link, remote: true do |f| %>
+  <dl class="form full">
+    <dt><%= f.label 'Website URL:' %></dt>
+    <dd><%= f.text_field :url %></dd>
+  </dl>
+  <div class="form-controls">
+    <%= f.submit 'Add URL', class: 'button orange'  %>
+  </div>
+<% end %>
