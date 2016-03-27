@@ -33,21 +33,21 @@ class LinksController < ApplicationController
     @links = Link.order(created_at: :desc)
     @link = Link.new(link_params)
 
-      if @link.valid?
-        @link.url = short_url(params[:link][:url])
-        respond_to do |format|
-          if Link.exists?(url: @link.url)
-            flash[:alert] = "This URL already exists."
-            format.js
-          else 
-            @link.save
-            flash[:notice] = "Success!"
-            format.js
+    if @link.valid?
+      @link.url = short_url(params[:link][:url])
+      respond_to do |format|
+        if Link.exists?(url: @link.url)
+          flash[:notice] = "This URL already exists."
+          format.js
+        else 
+          @link.save
+          flash[:notice] = "Success!"
+          format.js
           end
         end
-      else
-        flash[:alert] = "This URL is invalid."
-      end
+    else
+      flash[:notice] = "This URL is invalid."
+    end
   end
 
   # PATCH/PUT /links/1

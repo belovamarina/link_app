@@ -13,6 +13,14 @@
 
 <div class='contents'>
   <div class="container">
+    <div>
+    <%if alert && alert.length > 0 then %>
+      <p id="alert" class="alert"><%=alert%></p>
+    <% end %>
+    <%if notice && notice.size > 0 then %>
+      <p id="notice" class="notice"><%=notice%></p>
+    <% end %>
+  </div>
     <div class="long-form">
       <ul>
           <%= render @links %>

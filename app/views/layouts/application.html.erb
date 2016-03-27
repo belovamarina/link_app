@@ -7,14 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div>
-    <%if alert && alert.length > 0 then %>
-      <p id="alert" class="alert"><%=alert%></p>
-    <% end %>
-    <%if notice && notice.size > 0 then %>
-      <p id="notice" class="notice"><%=notice%></p>
-    <% end %>
-  </div>
 
 <%= yield %>
 
